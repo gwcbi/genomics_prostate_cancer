@@ -2,6 +2,9 @@
 
 ## Download References
 
+The reference files we will use come from the [GATK Resource Bundle](https://software.broadinstitute.org/gatk/download/bundle).
+
+
 ```bash
 mkdir -p refs
 cd refs
