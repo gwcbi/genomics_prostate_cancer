@@ -31,6 +31,7 @@ cd ..
 
 ## Raw Data
 
-TODO: Describe how the raw data is organized
-
+Under the directory production a folder called P001 has been created refering to patient number 1
+Under P001 2 folders have been created : P001_T for tumor and P001_N for normal 
+Each folder (e.g P001_N) contains 2 files that end by R1.fastq.gz and R2.fastq.gz
 
