@@ -38,7 +38,13 @@ Each folder (e.g P001_N) contains 2 files that end by R1.fastq.gz and R2.fastq.g
 ## Step 1: Map to Reference
 
 TODO: Describe what you are doing in this step
+This Step has bassically 3 steps:
+1. Convert FASTQ reads to uBAM
+2. MarkIlluminaAdapters:  Reads a SAM or BAM file and rewrites it with new adapter-trimming tags.
+3. Align with BWA
+
 
 ```bash
+This is the command to launch the job:
 sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/map_to_reference.sh
 ```
