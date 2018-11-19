@@ -5,7 +5,7 @@ module load gatk/4.0.11.0
 module load bwa/0.7.17
 
 export _JAVA_OPTIONS=-Xmx60g
-[[ -e /scratch ]] && TMPDIR=/scratch
+[[ -e ./tmp ]] && export TMPDIR=./tmp
 
 # Get SAMPDIR from command line if provided
 [[ -n $1 ]] && SAMPDIR=$1
