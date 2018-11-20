@@ -55,4 +55,8 @@ This step has 3 commandes:
 ```bash
 This is the command to launch the job:
 sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/map_to_reference.sh
+
+This command was used to launch the markduplicates:
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/mark_duplicates.sh
+
 ```
