@@ -36,4 +36,5 @@ gatk MarkDuplicates \
     --INPUT ${ABAM} \
     --OUTPUT ${MBAM} \
     --METRICS_FILE ${MET} \
-    --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 900
+    --MAX_FILE_HANDLES_FOR_READ_ENDS_MAP 900 \
+    --TMP_DIR $TMPDIR
