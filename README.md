@@ -76,6 +76,7 @@ sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/mark_duplicate
 useful links: https://software.broadinstitute.org/gatk/best-practices/workflow?id=11165
   https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php
   https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr
+  https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php
   
 Tools involved: BaseRecalibrator, Apply Recalibration, AnalyzeCovariates (optional)
 
