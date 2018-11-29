@@ -77,7 +77,7 @@ useful links: https://software.broadinstitute.org/gatk/best-practices/workflow?i
   https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php
   https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr
   https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php
-  
+  https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr
 Tools involved: BaseRecalibrator, Apply Recalibration, AnalyzeCovariates (optional)
 
 def: The base recalibration step is performed per-sample and consists of applying machine learning to detect and correct for patterns of systematic errors in the base quality scores, which are confidence scores emitted by the sequencer for each base. Base quality scores play an important role in weighing the evidence for or against possible variant alleles during the variant discovery process, so it's important to correct any systematic bias observed in the data.
