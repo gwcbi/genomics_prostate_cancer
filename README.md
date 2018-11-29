@@ -54,12 +54,50 @@ This step has 3 commandes:
 
 ```bash
 This is the command to launch the job:
-sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/map_to_reference.sh
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/map_to_reference.sh : for normal tissu
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/map_to_reference.sh : for tumor tissu
 
+## Step 2: Mark duplicates
+
+useful links: https://software.broadinstitute.org/gatk/best-practices/workflow?id=11146
+
+https://gatkforums.broadinstitute.org/gatk/discussion/2799/howto-map-and-mark-duplicates
+
+*the first thing to do to write the script is to find the requiered arguments by typing on the terminal: 
+     _module load gatk/4.0.11.0
+     _gatk MarkDuplicates --h
+# used the requiered argument and then try to find the optional arguments needed by the help of the link above. 
 This command was used to launch the markduplicates:
-sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/mark_duplicates.sh
-
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/mark_duplicates.sh : for normal tissu
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/mark_duplicates.sh : for tumor tissu
 ```
+## Step 3: Base recalibration
+
+useful links: https://software.broadinstitute.org/gatk/best-practices/workflow?id=11165
+  https://software.broadinstitute.org/gatk/documentation/tooldocs/3.8-0/org_broadinstitute_gatk_tools_walkers_bqsr_BaseRecalibrator.php
+  https://gatkforums.broadinstitute.org/gatk/discussion/44/base-quality-score-recalibration-bqsr
+  
+Tools involved: BaseRecalibrator, Apply Recalibration, AnalyzeCovariates (optional)
+
+def: The base recalibration step is performed per-sample and consists of applying machine learning to detect and correct for patterns of systematic errors in the base quality scores, which are confidence scores emitted by the sequencer for each base. Base quality scores play an important role in weighing the evidence for or against possible variant alleles during the variant discovery process, so it's important to correct any systematic bias observed in the data.
+
+*the first thing to do to write the script is to find the requiered arguments by typing on the terminal: 
+     _module load gatk/4.0.11.0
+     _gatk BaseRecalibrator --h
+     
+  *The requiered argument are:
+ --input,-I:String             BAM/SAM/CRAM file containing reads  This argument must be specified at least once.
+                              Required.
+
+--known-sites:FeatureInput    One or more databases of known polymorphic sites used to exclude regions around known
+                              polymorphisms from analysis.  This argument must be specified at least once. Required.
+
+--output,-O:File              The output recalibration table file to create  Required.
+
+--reference,-R:String         Reference sequence file  Required.
+
+
 This command was used to launch the base recalibrator:
-sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/base_recalibration.sh
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/base_recalibration.sh   : this is for normal tissu
+sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/base_recalibration.sh   : this is for tumor tissu
 
