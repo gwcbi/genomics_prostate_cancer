@@ -95,7 +95,7 @@ def: The base recalibration step is performed per-sample and consists of applyin
 --output,-O:File              The output recalibration table file to create  Required.
 
 --reference,-R:String         Reference sequence file  Required.
-
+# used the requiered argument and then try to find the optional arguments needed by the help of the link above.
 
 This command was used to launch the base recalibrator:
 sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/base_recalibration.sh   : this is for normal tissu
