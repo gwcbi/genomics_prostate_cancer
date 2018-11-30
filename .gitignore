@@ -1,0 +1,3 @@
+refs/*
+!refs/protocol.sh
+slurm-*.out
