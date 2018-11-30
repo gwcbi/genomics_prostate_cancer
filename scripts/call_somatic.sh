@@ -20,9 +20,13 @@ NBAM=${NDIR}/final.bam
 TBAM=${TDIR}/final.bam
 [[ ! -e "$TBAM" ]] && echo "$TBAM not found" && exit 1
 
-# Get the input known VCF
-KVCF="refs/Homo_sapiens_assembly38.dbsnp138.vcf"
-[[ ! -e "$KVCF" ]] && echo "$KVCF not found" && exit 1
+# Get the input Panel of Normals
+PON="refs/1000g_pon.hg38.vcf.gz"
+[[ ! -e "$PON" ]] && echo "$PON not found" && exit 1
+
+# Get the input gnomad VCF (germline resource)
+GVCF="refs/af-only-gnomad.hg38.vcf.gz"
+[[ ! -e "$GVCF" ]] && echo "$GVCF not found" && exit 1
 
 # Get the input reference FASTA
 REF="refs/Homo_sapiens_assembly38.fasta"
@@ -35,7 +39,8 @@ BOUT=${SUBJECT}/2_tumor_normal_m2.bam
 echo "***INPUT***"
 echo "Normal BAM:          ${NBAM}"
 echo "Tumor BAM:           ${TBAM}"
-echo "Known VCF:           ${KVCF}"
+echo "Panel of Normal:     ${PON}"
+echo "Germline resource:   ${GVCF}"
 echo "Reference FASTA:     ${REF}"
 echo ""
 echo "***OUTPUT***"
@@ -53,7 +58,8 @@ gatk Mutect2 \
     -tumor ${SUBJECT}_T \
     -I ${NBAM} \
     -normal ${SUBJECT}_N \
-    --germline-resource ${KVCF} \
+    -pon ${PON} \
+    --germline-resource ${GVCF} \
     --af-of-alleles-not-in-resource 0.0000025 \
     --disable-read-filter MateOnSameContigOrNoMappedMateReadFilter \
     -O ${SVCF} \
