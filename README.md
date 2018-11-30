@@ -104,10 +104,13 @@ sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/base_recalibra
 
 ## Step 4: Mutect2
  # Call_somatic 
-
+Useful links: https://software.broadinstitute.org/gatk/documentation/article?id=11136
+https://software.broadinstitute.org/gatk/documentation/article?id=11136
 This command was used to launch the somatic call:
 sbatch -N 1 -p short -t 2880 --export SUBJECT=P001 scripts/call_somatic.sh
   
    # Filter_somatic
 This command was used to launch the filter_somatic:
 sbatch -N 1 -p short -t 2880 --export SUBJECT=P001 scripts/filter_somatic.sh
+
+
