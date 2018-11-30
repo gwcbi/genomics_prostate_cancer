@@ -102,3 +102,12 @@ This command was used to launch the base recalibrator:
 sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_N scripts/base_recalibration.sh   : this is for normal tissu
 sbatch -N 1 -p short -t 2880 --export SAMPDIR=P001/P001_T scripts/base_recalibration.sh   : this is for tumor tissu
 
+## Step 4: Mutect2
+ # Call_somatic 
+
+This command was used to launch the somatic call:
+sbatch -N 1 -p short -t 2880 --export SUBJECT=P001 scripts/call_somatic.sh
+  
+   # Filter_somatic
+This command was used to launch the filter_somatic:
+sbatch -N 1 -p short -t 2880 --export SUBJECT=P001 scripts/filter_somatic.sh
